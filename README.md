@@ -1,19 +1,18 @@
 # react-native-applica-signature
 
-React Native Signature Component based Canvas for Android &amp;&amp; IOS &amp;&amp; expo
+React Native Signature Component based Canvas for Android, iOS and Expo
 
 - Supports Android and iOS with Expo SDK v.45.0.0
 - Tested with React Native 0.68.2
 - Generates a base64 encoded png image of the signature
 
-## Installation(for React Native from V0.60.2 or Expo SDK from v35.0.0)
+## Installation(for React Native from V0.60.0 or Expo SDK from v35.0.0)
 
 ```bash
 npm install react-native-applica-signature
 ```
 
 ## Usage
-Basic
 ```js
 import SignCanvas from "react-native-applica-signature";
 ```
@@ -59,7 +58,9 @@ import SignCanvas from "react-native-applica-signature";
 | style                               |  `object`  | style of wrapper view                                                                                                                                 |
 | trimWhitespace                      | `boolean`  | trim image whitespace                                                                                                                                 |
 | webStyle                            |  `string`  | webview style for overwrite default style, all style: https://github.com/YanYuanFE/react-native-signature-canvas/blob/master/h5/css/signature-pad.css |
-
+| onConfirm                           | `function`  | callback function when confirm button has pressed
+| onEmptyConfirm                      | `function`  | callback function when clear button has pressed 
+| ref                                 |  `string`   | reference to use with `useRef` hook to call methods
 
 ## Methods
 
@@ -79,7 +80,7 @@ import SignCanvas from "react-native-applica-signature";
 
 To call the methods use the `useRef` hook:
 
-'''js
+```js
 const SignCanvas = forwardRef(({ onConfirm, onEmptyConfirm, autoclear = true, penColor = 'blue' }, ref) => {
     const style = `
         body,html {
@@ -122,11 +123,11 @@ const SignCanvas = forwardRef(({ onConfirm, onEmptyConfirm, autoclear = true, pe
 })
 
 export default SignCanvas;
-'''
+```
 
 ## Example
 
-'''js
+```js
 import { useRef } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -181,5 +182,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 },
 });
-'''
-
+```
