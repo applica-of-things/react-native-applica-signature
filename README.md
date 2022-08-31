@@ -76,3 +76,110 @@ import SignCanvas from "react-native-applica-signature";
 | readSignature()           | Reads the current signature on the canvas and triggers either the `onOK` or `onEmpty` callbacks |
 | undo()                    | Undo last stroke                                                                                |
 | redo()                    | Redo last stroke                                                                                |
+
+To call the methods use the `useRef` hook:
+
+'''js
+const SignCanvas = forwardRef(({ onConfirm, onEmptyConfirm, autoclear = true, penColor = 'blue' }, ref) => {
+    const style = `
+        body,html {
+            width: 100%; 
+            height: 100%;
+        }
+        .m-signature-pad {
+            flex: 1;
+            border: none;
+            box-shadow: none;
+            margin: 0px;
+          }
+        .m-signature-pad--footer{
+            display: none;
+        } 
+        `
+    const handleSignature = (signature) => {
+        if (_.isFunction(onConfirm)){
+            onConfirm(signature);
+        }
+    };
+
+    const handleEmpty = () => {
+        if (_.isFunction(onEmptyConfirm)){
+            onEmptyConfirm();
+        }
+    };
+
+    return (
+        <SignatureScreen
+            ref = {ref}
+            onOK = {handleSignature}
+            onEmpty = {handleEmpty}
+            penColor = {penColor}
+            autoClear = {autoclear}
+            webStyle={style}
+            backgroundColor = 'white'
+        />
+    );
+})
+
+export default SignCanvas;
+'''
+
+## Example
+
+'''js
+import { useRef } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import SignCanvas from 'react-native-applica-signature';
+
+export default function App() {
+  const ref = useRef(null);
+
+  const handleSignature = signature => {
+    console.log(signature);
+  };
+
+  const handleEmpty = () => {
+    console.log("Empty!");
+  };
+
+  const handleClear = () => {
+    ref.current?.clearSignature();
+    console.log("Cleared signature!");
+  };
+
+  const handleConfirm = () => {
+      console.log("Confirmed signature!", ref);
+      ref.current?.readSignature();
+  };
+
+  return (
+    <View style={styles.container}>
+      <SignCanvas ref={ref} onConfirm={handleSignature} onEmptyConfirm={handleEmpty} /> 
+      <View style={styles.footer}>
+          <MaterialIcons name="delete" size={32} color='#3884FF' onPress={handleClear}/>
+          <MaterialIcons name="check" size={32} color='#3884FF' onPress={handleConfirm}/>
+      </View> 
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+    padding: 64,
+  },
+  footer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    height: 100,
+    alignItems: 'center',
+},
+});
+'''
+
