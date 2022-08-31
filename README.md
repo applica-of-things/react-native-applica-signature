@@ -23,7 +23,8 @@ import SignCanvas from "react-native-applica-signature";
 ---
 
 | Prop                                |    Type    | Description                                                                                                                                           |
-| :---------------------------------- | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- |                                                                       |
+| :---------------------------------- | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| androidHardwareAccelerationDisabled | `boolean`  | androidHardwareAccelerationDisabled for react-native-webview. Default is false                                                                        |
 | autoClear                           | `boolean`  | should auto clear the signature after clicking the Confirm button                                                                                     |
 | backgroundColor                     |  `string`  | default is "rgba(255,255,255,0)" (_transparent_), background color of the canvas                                                                                           |
 | bgHeight                            |  `number`  | height of the background image                                                                                                                        |
