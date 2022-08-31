@@ -1,0 +1,35 @@
+{
+  "name": "react-native-applica-signature",
+  "version": "1.0.0",
+  "description": "react-native-applica-signature",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/applica-of-things/react-native-applica-signature.git"
+  },
+  "keywords": [
+    "applica",
+    "signature",
+    "app"
+  ],
+  "author": "Applica of Things",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/applica-of-things/react-native-applica-signature/issues"
+  },
+  "homepage": "https://github.com/applica-of-things/react-native-applica-signature#readme",
+  "peerDependencies": {
+    "react": "17.0.2"
+  },
+  "dependencies": {
+    "react-native-webview": "11.18.1",
+    "react-native-signature-canvas": "^4.4.1",
+    "underscore": "^1.13.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9"
+  }
+}
