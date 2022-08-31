@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import SignCanvas from '../src';
+import SignCanvas from 'react-native-applica-signature';
 
 export default function App() {
   const ref = useRef(null);
