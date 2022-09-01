@@ -1,6 +1,6 @@
 {
   "name": "react-native-applica-signature",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "react-native-applica-signature",
   "main": "src/index.js",
   "scripts": {
@@ -22,11 +22,10 @@
   },
   "homepage": "https://github.com/applica-of-things/react-native-applica-signature#readme",
   "peerDependencies": {
-    "react": "17.0.2"
   },
   "dependencies": {
-    "react-native-webview": "11.18.1",
-    "react-native-signature-canvas": "^4.4.1",
+    "react-native-webview": "11.23.0",
+    "react-native-canvas-for-sign": "^1.0.0",
     "underscore": "^1.13.4"
   },
   "devDependencies": {
