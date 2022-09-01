@@ -15,7 +15,7 @@ npm install react-native-applica-signature
 
 ## Usage
 ```js
-import SignCanvas from "react-native-canvas-for-sign";
+import SignCanvas from "react-native-applica-signature";
 ```
 
 ## Properties
@@ -28,67 +28,6 @@ import SignCanvas from "react-native-canvas-for-sign";
 | penColor                            |  `string`  | default is "black", color of 
 | onConfirm                           | `function`  | callback function when confirm button has pressed
 | onEmptyConfirm                      | `function`  | callback function when clear button has pressed 
-
-## Methods
-
----
-
-| Function                  | Description                                                                                     |
-| :--------------------     | :-----------------------------------------------------------------------------------------------|
-| clearSignature()          | Clear the current signature                                                                     |
-| changePenColor(color)     | Change pen color                                                                                |
-| changePenSize(minW, maxW) | Change pen size                                                                                 |
-| draw()                    | Enable drawing signature                                                                        |
-| erase()                   | Enable erasing signature                                                                        |
-| getData()                 | Triggers the `onGetData` callback with a single `data` JSON string                              |
-| readSignature()           | Reads the current signature on the canvas and triggers either the `onOK` or `onEmpty` callbacks |
-| undo()                    | Undo last stroke                                                                                |
-| redo()                    | Redo last stroke                                                                                |
-
-```js
-const SignCanvas = forwardRef(({ onConfirm, onEmptyConfirm, autoclear = true, penColor = 'blue' }, ref) => {
-    const style = `
-        body,html {
-            width: 100%; 
-            height: 100%;
-        }
-        .m-signature-pad {
-            flex: 1;
-            border: none;
-            box-shadow: none;
-            margin: 0px;
-          }
-        .m-signature-pad--footer{
-            display: none;
-        } 
-        `
-    const handleSignature = (signature) => {
-        if (_.isFunction(onConfirm)){
-            onConfirm(signature);
-        }
-    };
-
-    const handleEmpty = () => {
-        if (_.isFunction(onEmptyConfirm)){
-            onEmptyConfirm();
-        }
-    };
-
-    return (
-        <SignatureScreen
-            ref = {ref}
-            onOK = {handleSignature}
-            onEmpty = {handleEmpty}
-            penColor = {penColor}
-            autoClear = {autoclear}
-            webStyle={style}
-            backgroundColor = 'white'
-        />
-    );
-})
-
-export default SignCanvas;
-```
 
 ## Example
 
