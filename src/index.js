@@ -1,4 +1,4 @@
-import SignatureScreen from 'react-native-signature-canvas';
+import SignatureScreen from 'react-native-canvas-for-sign';
 import { forwardRef } from 'react';
 import * as _ from 'underscore';
 
