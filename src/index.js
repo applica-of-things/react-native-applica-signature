@@ -2,7 +2,7 @@ import SignatureScreen from 'react-native-canvas-for-sign';
 import { forwardRef } from 'react';
 import * as _ from 'underscore';
 
-const SignCanvas = forwardRef(({ onConfirm, onEnd, onEmptyConfirm, autoclear = true, penColor = 'blue' }, ref) => {
+const SignCanvas = forwardRef(({ onConfirm, onEnd, onEmptyConfirm, autoclear = true, penColor = 'blue', backgroundColor='white' }, ref) => {
     const style = `
         body,html {
             width: 100%; 
@@ -44,7 +44,7 @@ const SignCanvas = forwardRef(({ onConfirm, onEnd, onEmptyConfirm, autoclear = t
             penColor = {penColor}
             autoClear = {autoclear}
             webStyle={style}
-            backgroundColor = 'white'
+            backgroundColor = {backgroundColor}
         />
     );
 })
