@@ -25,9 +25,11 @@ import SignCanvas from "react-native-applica-signature";
 | Prop                                |    Type    | Description                                                                                                                                           |
 | :---------------------------------- | :--------: | :---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | autoClear                           | `boolean`  | should auto clear the signature after clicking the Confirm button
-| penColor                            |  `string`  | default is "black", color of 
+| penColor                            |  `string`  | default is "black", pen's color
 | onConfirm                           | `function`  | callback function when confirm button has pressed
-| onEmptyConfirm                      | `function`  | callback function when clear button has pressed 
+| onEmptyConfirm                      | `function`  | callback function when clear button has pressed
+| onEnd                               | `function`  | callback function when signature finish
+| backgroundColor                     | `string`    | default is "white"
 
 ## Example
 
